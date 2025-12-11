@@ -14,6 +14,12 @@ export const sequelize = new Sequelize({
   port: Number(process.env.DB_PORT) || 5432,
   models: [User, Favorite], 
   logging: false, 
+  dialectOptions: {
+    ssl: {
+      require: true, 
+      rejectUnauthorized: false 
+    }
+  }
 });
 
 const dbConnect = async () => {
