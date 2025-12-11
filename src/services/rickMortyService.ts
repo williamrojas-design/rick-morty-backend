@@ -16,3 +16,14 @@ export const getCharactersFromAPI = async (page: number = 1) => {
     throw error;
   }
 };
+
+export const getCharacterById = async (id: string) => {
+  try {
+    const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching character details:", error);
+    throw error;
+  }
+};
